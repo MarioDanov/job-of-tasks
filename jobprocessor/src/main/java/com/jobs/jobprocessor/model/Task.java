@@ -1,19 +1,19 @@
 package com.jobs.jobprocessor.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 public class Task {
+
+    @NotBlank(message = "Task name cannot be blank.")
     private String name;
+
+    @NotBlank(message = "Command cannot be blank.")
     private String command;
+
+    @JsonIgnore
     private List<String> requires;
-
-    public Task() {}
-
-    public Task(String name, String command, List<String> requires) {
-        this.name = name;
-        this.command = command;
-        this.requires = requires;
-    }
 
     public String getName() {
         return name;
